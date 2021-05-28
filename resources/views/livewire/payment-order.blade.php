@@ -1,5 +1,5 @@
-<x-app-layout>
-
+<div>
+    
     {{-- @php
         // SDK de Mercado Pago
         require base_path('vendor/autoload.php');
@@ -179,33 +179,40 @@
 
     </script> --}}
 
-    <script src="https://www.paypal.com/sdk/js?client-id={{ config('services.paypal.client_id') }}">
-        // Replace YOUR_CLIENT_ID with your sandbox client ID
+    @push('script')
+        
+    
 
-    </script>
+        <script src="https://www.paypal.com/sdk/js?client-id={{ config('services.paypal.client_id') }}">
+            // Replace YOUR_CLIENT_ID with your sandbox client ID
+
+        </script>
 
 
-    <script>
-        paypal.Buttons({
-            createOrder: function(data, actions) {
-                return actions.order.create({
-                    purchase_units: [{
-                        amount: {
-                            value: "{{ $order->total }}"
-                        }
-                    }]
-                });
-            },
-            onApprove: function(data, actions) {
-                return actions.order.capture().then(function(details) {
+        <script>
+            paypal.Buttons({
+                createOrder: function(data, actions) {
+                    return actions.order.create({
+                        purchase_units: [{
+                            amount: {
+                                value: "{{ $order->total }}"
+                            }
+                        }]
+                    });
+                },
+                onApprove: function(data, actions) {
+                    return actions.order.capture().then(function(details) {
 
-                    console.log(details);
+                        Livewire.emit('payOrder');
 
-                    alert('Transaction completed by ' + details.payer.name.given_name);
-                });
-            }
-        }).render('#paypal-button-container'); // Display payment options on your web page
+                        /* console.log(details);
 
-    </script>
+                        alert('Transaction completed by ' + details.payer.name.given_name); */
+                    });
+                }
+            }).render('#paypal-button-container'); // Display payment options on your web page
 
-</x-app-layout>
+        </script>
+
+    @endpush
+</div>
