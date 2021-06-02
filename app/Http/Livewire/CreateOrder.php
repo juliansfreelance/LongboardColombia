@@ -92,8 +92,11 @@ class CreateOrder extends Component
             $order->references = $this->references;
         }
 
-
         $order->save();
+
+        foreach (Cart::content() as $item) {
+            discount($item);
+        }
 
         Cart::destroy();
 
