@@ -48,11 +48,11 @@
         <x-jet-label value="Slug" />
         <x-jet-input type="text"
             disabled
-            wire:model="product.slug"
+            wire:model="slug"
             class="w-full bg-gray-200" 
             placeholder="Ingrese el slug del producto" />
 
-    <x-jet-input-error for="product.slug" />
+    <x-jet-input-error for="slug" />
     </div>
 
     {{-- Descrición --}}
@@ -112,10 +112,10 @@
             <div>
                 <x-jet-label value="Cantidad" />
                 <x-jet-input 
-                    wire:model="quantity"
+                    wire:model="product.quantity"
                     type="number" 
                     class="w-full" />
-                <x-jet-input-error for="quantity" />
+                <x-jet-input-error for="product.quantity" />
             </div>
 
         @endif
@@ -128,7 +128,7 @@
             wire:target="save"
             wire:click="save"
             class="ml-auto">
-            Crear producto
+            Actualizar producto
         </x-jet-button>
     </div>
 
