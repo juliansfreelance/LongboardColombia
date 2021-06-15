@@ -81,6 +81,8 @@ class EditProduct extends Component
         $this->product->slug = $this->slug;
 
         $this->product->save();
+
+        $this->emit('saved');
     }
 
 
