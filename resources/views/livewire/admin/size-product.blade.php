@@ -38,7 +38,7 @@
                     </div>
                 </div>
 
-                @livewire('admin.color-size', ['size' => $size], key('color-size' . $size->id))
+                @livewire('admin.color-size', ['size' => $size], key('color-size-' . $size->id))
             </li>
         @endforeach
     </ul>
@@ -73,7 +73,6 @@
 
     @push('script')
         <script>
-
             Livewire.on('deleteSize', sizeId => {
 
                 Swal.fire({
@@ -87,7 +86,7 @@
                 }).then((result) => {
                     if (result.isConfirmed) {
 
-                        Livewire.emit('delete', sizeId);
+                        Livewire.emitTo('admin.size-product','delete', sizeId);
 
                         Swal.fire(
                             'Deleted!',
@@ -98,6 +97,7 @@
                 })
 
             })
+
         </script>
     @endpush
 
