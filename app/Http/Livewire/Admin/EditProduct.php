@@ -33,7 +33,7 @@ class EditProduct extends Component
         'product.quantity' => 'numeric',
     ];
 
-    protected $listeners = ['refreshProduct'];
+    protected $listeners = ['refreshProduct', 'delete'];
 
     public function mount(Product $product){
         $this->product = $product;
@@ -100,6 +100,21 @@ class EditProduct extends Component
         $image->delete();
 
         $this->product = $this->product->fresh();
+    }
+
+    public function delete(){
+
+        $images = $this->product->images;
+
+        foreach ($images as $image) {
+            Storage::delete($image->url);
+            $image->delete();
+        }
+
+        $this->product->delete();
+
+        return redirect()->route('admin.index');
+
     }
 
 
