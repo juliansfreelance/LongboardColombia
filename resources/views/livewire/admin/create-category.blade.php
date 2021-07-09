@@ -108,9 +108,9 @@
                                     {!!$category->icon!!}
                                 </span>
 
-                                <span class="uppercase">
+                                <a href="{{route('admin.categories.show', $category)}}" class="uppercase underline hover:text-blue-600">
                                     {{$category->name}}
-                                </span>
+                                </a>
                             </td>
                             <td class="py-2">
                                 <div class="flex divide-x divide-gray-300 font-semibold">
