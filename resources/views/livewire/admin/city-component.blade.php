@@ -75,7 +75,7 @@
                                 <td class="py-2">
                                     <div class="flex divide-x divide-gray-300 font-semibold">
                                         <a class="pr-2 hover:text-blue-600 cursor-pointer" wire:click="edit({{$district}})">Editar</a>
-                                        <a class="pl-2 hover:text-red-600 cursor-pointer" wire:click="">Eliminar</a>
+                                        <a class="pl-2 hover:text-red-600 cursor-pointer" wire:click="$emit('deleteDistrict', {{$district->id}})">Eliminar</a>
                                     </div>
                                 </td>
                             </tr>
@@ -119,4 +119,33 @@
     
         </x-jet-dialog-modal>
     </div>
+
+    @push('script')
+        <script>
+            Livewire.on('deleteDistrict', districtId => {
+            
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+
+                        Livewire.emitTo('admin.city-component', 'delete', districtId)
+
+                        Swal.fire(
+                            'Deleted!',
+                            'Your file has been deleted.',
+                            'success'
+                        )
+                    }
+                })
+
+            });
+        </script>
+    @endpush
 </div>
