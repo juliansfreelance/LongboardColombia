@@ -44,7 +44,7 @@
 
                         @foreach ($users as $user)
 
-                            <tr>
+                            <tr wire:key="{{$user->email}}">
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <div class="text-gray-900">
                                         {{$user->id}}
@@ -75,7 +75,16 @@
                                     </div>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                    <a href="" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                    
+                                    <label>
+                                        <input {{count($user->roles) ? 'checked' : ''}} value="1" type="radio" name="{{$user->email}}" wire:change="assignRole({{$user->id}}, $event.target.value)">
+                                        Si
+                                    </label>
+
+                                    <label class="ml-2">
+                                        <input {{count($user->roles) ? '' : 'checked'}} value="0" type="radio" name="{{$user->email}}" wire:change="assignRole({{$user->id}}, $event.target.value)">
+                                        No
+                                    </label>
                                 </td>
                             </tr>
 
