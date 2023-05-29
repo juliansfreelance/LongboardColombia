@@ -17,7 +17,7 @@ class SubcategorySeeder extends Seeder
     public function run()
     {
         $subcategories = [
-            /* Celulares y tablets */
+            /* Tablas */
             [
                 'category_id' => 1,
                 'name' => 'Mini Cruisers',
@@ -43,7 +43,7 @@ class SubcategorySeeder extends Seeder
                 'slug' => Str::slug('Promociones'),
             ],
 
-            /* TV, audio y video */
+            /* Componentes */
 
             [
                 'category_id' => 2,
@@ -73,12 +73,9 @@ class SubcategorySeeder extends Seeder
                 'name' => 'Rodamientos',
                 'slug' => Str::slug('Rodamientos'),
             ],
-            /* Consola y videojuegos */
-            [
-                'category_id' => 3,
-                'name' => 'Xbox',
-                'slug' => Str::slug('xbos'),
-            ],
+
+
+            /* Accesorios */
 
             [
                 'category_id' => 3,
