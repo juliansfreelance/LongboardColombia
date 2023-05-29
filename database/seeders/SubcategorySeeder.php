@@ -20,42 +20,59 @@ class SubcategorySeeder extends Seeder
             /* Celulares y tablets */
             [
                 'category_id' => 1,
-                'name' => 'Celulares y smartphones',
-                'slug' => Str::slug('Celulares y smartphones'),
+                'name' => 'Mini Cruisers',
+                'slug' => Str::slug('Mini Cruisers'),
                 'color' => true
             ],
 
             [
                 'category_id' => 1,
-                'name' => 'Accesorios para celulares',
-                'slug' => Str::slug('Accesorios para celulares'),
+                'name' => 'Cruisers',
+                'slug' => Str::slug('Cruisers'),
             ],
 
             [
                 'category_id' => 1,
-                'name' => 'Smartwatches',
-                'slug' => Str::slug('Smartwatches'),
+                'name' => 'Longboards',
+                'slug' => Str::slug('Longboards'),
+            ],
+
+            [
+                'category_id' => 1,
+                'name' => 'Promociones',
+                'slug' => Str::slug('Promociones'),
             ],
 
             /* TV, audio y video */
 
             [
                 'category_id' => 2,
-                'name' => 'TV y audio',
-                'slug' => Str::slug('TV y audio'),
+                'name' => 'Ruedas.',
+                'slug' => Str::slug('Ruedas.'),
             ],
             [
                 'category_id' => 2,
-                'name' => 'Audios',
-                'slug' => Str::slug('Audios'),
+                'name' => 'Trucks.',
+                'slug' => Str::slug('Trucks.'),
             ],
 
             [
                 'category_id' => 2,
-                'name' => 'Audio para autos',
-                'slug' => Str::slug('Audio para autos'),
+                'name' => 'Bushings',
+                'slug' => Str::slug('Bushings'),
             ],
 
+            [
+                'category_id' => 2,
+                'name' => 'Hardware',
+                'slug' => Str::slug('Hardware'),
+            ],
+
+            [
+                'category_id' => 2,
+                'name' => 'Rodamientos',
+                'slug' => Str::slug('Rodamientos'),
+            ],
             /* Consola y videojuegos */
             [
                 'category_id' => 3,
@@ -65,83 +82,38 @@ class SubcategorySeeder extends Seeder
 
             [
                 'category_id' => 3,
-                'name' => 'Play Station',
-                'slug' => Str::slug('Play Station'),
+                'name' => 'Apparel',
+                'slug' => Str::slug('Apparel'),
             ],
 
             [
                 'category_id' => 3,
-                'name' => 'Videojuegos para PC',
-                'slug' => Str::slug('Videojuegos para PC'),
+                'name' => 'Herramienta.',
+                'slug' => Str::slug('Herramienta'),
             ],
 
             [
                 'category_id' => 3,
-                'name' => 'Nintendo',
-                'slug' => Str::slug('Nintendo'),
-            ],
-
-            /* Computación */
-
-            [
-                'category_id' => 4,
-                'name' => 'Portátiles',
-                'slug' => Str::slug('Portátiles'),
+                'name' => 'Lubricantes y limpiadores',
+                'slug' => Str::slug('Lubricantes y limpiadores'),
             ],
 
             [
-                'category_id' => 4,
-                'name' => 'PC escritorio',
-                'slug' => Str::slug('PC escritorio'),
+                'category_id' => 3,
+                'name' => 'Protección.',
+                'slug' => Str::slug('Protección.'),
             ],
 
             [
-                'category_id' => 4,
-                'name' => 'Almacenamiento',
-                'slug' => Str::slug('Almacenamiento'),
+                'category_id' => 3,
+                'name' => 'Tubo para balance boards',
+                'slug' => Str::slug('Tubo para balance boards'),
             ],
 
-            [
-                'category_id' => 4,
-                'name' => 'Accesorios computadoras',
-                'slug' => Str::slug('Accesorios computadoras'),
-            ],
-
-            /* Moda */
-            [
-                'category_id' => 5,
-                'name' => 'Mujeres',
-                'slug' => Str::slug('Mujeres'),
-                'color' => true,
-                'size' => true
-            ],
-
-            [
-                'category_id' => 5,
-                'name' => 'Hombres',
-                'slug' => Str::slug('Hombres'),
-                'color' => true,
-                'size' => true
-            ],
-
-            [
-                'category_id' => 5,
-                'name' => 'Lentes',
-                'slug' => Str::slug('Lentes'),
-            ],
-
-            [
-                'category_id' => 5,
-                'name' => 'Relojes',
-                'slug' => Str::slug('Relojes'),
-            ],
         ];
 
         foreach ($subcategories as $subcategory) {
-            
-
             Subcategory::create($subcategory);
-
         }
     }
 }

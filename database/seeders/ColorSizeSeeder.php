@@ -18,7 +18,7 @@ class ColorSizeSeeder extends Seeder
 
         foreach ($sizes as $size) {
             $size->colors()
-                ->attach([  
+                ->attach([
                             1 => ['quantity' => 10],
                             2 => ['quantity' => 10],
                             3 => ['quantity' => 10],
